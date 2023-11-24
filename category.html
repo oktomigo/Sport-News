@@ -24,7 +24,28 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
 </head>
+<script>
+    function searchNews() {
+        var input, filter, newsItems, newsTitles, i, txtValue;
+        input = document.getElementById('searchInput');
+        filter = input.value.toUpperCase();
+        newsItems = document.getElementsByClassName('news-item');
 
+        for (i = 0; i < newsItems.length; i++) {
+            newsTitles = newsItems[i].getElementsByClassName('text-secondary text-uppercase font-weight-bold');
+            txtValue = newsTitles[0].textContent || newsTitles[0].innerText;
+
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                newsItems[i].style.display = '';
+            } else {
+                newsItems[i].style.display = 'none';
+            }
+        }
+    }
+
+    // Mengatur event listener untuk memanggil fungsi pencarian saat input berubah
+    document.getElementById('searchInput').addEventListener('input', searchNews);
+</script>
 <body>
     <!-- Topbar Start -->
     <div class="container-fluid d-none d-lg-block">
@@ -119,10 +140,9 @@
                     <a href="contact.html" class="nav-item nav-link">Contact</a>
                 </div>
                 <div class="input-group ml-auto d-none d-lg-flex" style="width: 100%; max-width: 300px;">
-                    <input type="text" class="form-control border-0" placeholder="Keyword">
+                    <input type="text" id="searchInput" onkeyup="searchNews()" placeholder="Search...">
                     <div class="input-group-append">
-                        <button class="input-group-text bg-primary text-dark border-0 px-3"><i
-                                class="fa fa-search"></i></button>
+                        <button class="input-group-text bg-primary text-dark border-0 px-3" onclick="searchNews()"><i class="fa fa-search"></i></button>
                     </div>
                 </div>
             </div>
@@ -143,7 +163,8 @@
                                 <a class="text-secondary font-weight-medium text-decoration-none" href="">View All</a>
                             </div>
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 news-item">
+                            
                             <div class="position-relative mb-3">
                                 <img class="img-fluid w-100" src="imgg/bola/argentina.jpeg" style="object-fit: cover;">
                                 <div class="bg-white border border-top-0 p-4">
@@ -168,7 +189,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 news-item">
                             <div class="position-relative mb-3">
                                 <img class="img-fluid w-100" src="imgg/bola/u17.jpeg" style="object-fit: cover;">
                                 <div class="bg-white border border-top-0 p-4">
@@ -193,10 +214,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-12 mb-3">
+                        <div class="col-lg-12 mb-3 news-item">
                             <a href=""><img class="img-fluid w-100" src="img/ads-728x90.png" alt=""></a>
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 news-item">
                             <div class="position-relative mb-3">
                                 <img class="img-fluid w-100" src="imgg/bola/belligoal.jpg" style="object-fit: cover;">
                                 <div class="bg-white border border-top-0 p-4">
@@ -219,7 +240,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 news-item">
                             <div class="position-relative mb-3">
                                 <img class="img-fluid w-100" src="imgg/bola/2.jpeg" style="object-fit: cover;">
                                 <div class="bg-white border border-top-0 p-4">
@@ -242,7 +263,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 news-item">
                             <div class="d-flex align-items-center bg-white mb-3" style="height: 110px;">
                                 <img class="img-fluid" src="img/news-110x110-1.jpg" alt="">
                                 <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
@@ -264,7 +285,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 news-item">
                             <div class="d-flex align-items-center bg-white mb-3" style="height: 110px;">
                                 <img class="img-fluid" src="img/news-110x110-3.jpg" alt="">
                                 <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
@@ -289,7 +310,7 @@
                         <div class="col-lg-12 mb-3">
                             <a href=""><img class="img-fluid w-100" src="img/ads-728x90.png" alt=""></a>
                         </div>
-                        <div class="col-lg-12">
+                        <div class="col-lg-12 news-item">
                             <div class="row news-lg mx-0 mb-3">
                                 <div class="col-md-6 h-100 px-0">
                                     <img class="img-fluid h-100" src="imgg/bola/3.jpeg" style="object-fit: cover;">
@@ -318,7 +339,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 news-item">
                             <div class="d-flex align-items-center bg-white mb-3" style="height: 110px;">
                                 <img class="img-fluid" src="img/news-110x110-1.jpg" alt="">
                                 <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
@@ -340,7 +361,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 news-item">
                             <div class="d-flex align-items-center bg-white mb-3" style="height: 110px;">
                                 <img class="img-fluid" src="img/news-110x110-3.jpg" alt="">
                                 <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
@@ -612,7 +633,7 @@
     <div class="container-fluid py-4 px-sm-3 px-md-5" style="background: #111111;">
         <!-- <p class="m-0 text-center">&copy; <a href="#">Your Site Name</a>. All Rights Reserved.  -->
 		
-		<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+		<!--/* This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. */-->
 		<!-- Design by <a href="https://htmlcodex.com">HTML Codex</a></p> -->
     </div>
     <!-- Footer End -->
