@@ -63,6 +63,10 @@ body {
   text-align: left;
   background-color: #EDEFF4;
 }
+body.dark-mode {
+  background-color: #222;
+  color: #fff;
+}
 
 [tabindex="-1"]:focus:not(:focus-visible) {
   outline: 0 !important;
